@@ -5007,9 +5007,9 @@ button.module-image__border-overlay:focus {
 }
 
 .module-reaction-picker {
-  width: 320px;
+  width: 454px;
   height: 56px;
-  border-radius: 30px;
+  border-radius: 10px;
   position: relative;
   margin: 4px 0;
   z-index: 2;
@@ -5031,7 +5031,7 @@ button.module-image__border-overlay:focus {
     position: absolute;
     top: 2px;
 
-    @for $i from 0 through 6 {
+    @for $i from 0 through 10 {
       &:nth-of-type(#{$i + 1}) {
         left: 2px + ($i * 44px);
 

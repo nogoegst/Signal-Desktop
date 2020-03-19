@@ -11,7 +11,7 @@ export type OwnProps = {
 
 export type Props = OwnProps & Pick<React.HTMLProps<HTMLDivElement>, 'style'>;
 
-const emojis = ['❤️', '👍', '👎', '😂', '😮', '😢', '😡'];
+const emojis = ['❤️', '👍', '👎', '😂', '😮', '😢', '😡', '😍', '🌵', '🏳️‍🌈'];
 
 export const ReactionPicker = React.forwardRef<HTMLDivElement, Props>(
   ({ selected, onClose, onPick, ...rest }, ref) => {
