@@ -5007,9 +5007,9 @@ button.module-image__border-overlay:focus {
 }
 
 .module-reaction-picker {
-  width: 320px;
+  width: 336px;
   height: 56px;
-  border-radius: 30px;
+  border-radius: 17px;
   position: relative;
   margin: 4px 0;
   z-index: 2;
@@ -5021,17 +5021,69 @@ button.module-image__border-overlay:focus {
     fill-mode: forwards;
   }
 
+  &__emoji-input {
+    display: flex;
+    position: absolute;
+    top: 2px;
+    left: 278px;
+    size: 1;
+    width: 52px;
+    height: 52px;
+
+    @include font-body-1;
+
+    line-height: 48px;
+    font-size: 40px;
+
+    border-radius: 17px;
+    border-width: 1px;
+    border-style: solid;
+    padding: 0 4px 0 4px;
+
+    &:focus {
+      outline: none;
+    }
+
+    @include light-theme {
+      background: $color-white;
+      color: $color-gray-90;
+      border-color: $color-gray-60;
+
+      &:focus {
+        border-color: $color-signal-blue;
+      }
+
+      &:placeholder {
+        color: $color-gray-45;
+      }
+    }
+
+    @include dark-theme {
+      border-color: $color-gray-25;
+      background: $color-gray-75;
+      color: $color-gray-05;
+
+      &:focus {
+        border-color: $color-signal-blue;
+      }
+
+      &:placeholder {
+        color: $color-gray-45;
+      }
+    }
+  }
+
   &__emoji-btn {
     @include button-reset;
     display: flex;
     min-width: 52px;
     min-height: 52px;
-    border-radius: 52px;
+    border-radius: 17px;
 
     position: absolute;
     top: 2px;
 
-    @for $i from 0 through 6 {
+    @for $i from 0 through 5 {
       &:nth-of-type(#{$i + 1}) {
         left: 2px + ($i * 44px);
 

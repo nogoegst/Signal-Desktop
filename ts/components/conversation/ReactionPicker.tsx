@@ -11,7 +11,7 @@ export type OwnProps = {
 
 export type Props = OwnProps & Pick<React.HTMLProps<HTMLDivElement>, 'style'>;
 
-const emojis = ['❤️', '👍', '👎', '😂', '😮', '😢', '😡'];
+const emojis = ['❤️', '👍', '👎', '😂', '😮', '😢'];
 
 export const ReactionPicker = React.forwardRef<HTMLDivElement, Props>(
   ({ selected, onClose, onPick, ...rest }, ref) => {
@@ -34,6 +34,8 @@ export const ReactionPicker = React.forwardRef<HTMLDivElement, Props>(
 
     // Focus first button and restore focus on unmount
     useRestoreFocus(focusRef);
+
+    const [typedEmoji, setTypedEmoji] = React.useState("")
 
     return (
       <div {...rest} ref={ref} className="module-reaction-picker">
@@ -62,6 +64,20 @@ export const ReactionPicker = React.forwardRef<HTMLDivElement, Props>(
             </button>
           );
         })}
+        <input
+          className="module-reaction-picker__emoji-input"
+          value={typedEmoji}
+          onChange={ e => {
+            setTypedEmoji(e.target.value)
+          }}
+          onKeyPress={ e => {
+            if (e.key === 'Enter') {
+              e.stopPropagation();
+              onPick(typedEmoji)
+              console.log('typedEmoji: '+typedEmoji)
+            }
+          }}
+        ></input>
       </div>
     );
   }
